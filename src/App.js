@@ -14,7 +14,9 @@ const App = () => {
   const [meme, setMeme] = useState(null)
 
   useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://api.imgflip.com/get_memes"
+    )
       .then(x => x.json())
       .then(response => setTemplates(response.data.memes))
   }, [])
@@ -39,11 +41,11 @@ const App = () => {
               template_id: template.id,
               text0: topText,
               text1: bottomText,
-              username: process.env.USERNAME,
-              password: process.env.PASSWORD
+              username: "allboutdamemes",
+              password: "1234qwerpassword"
             }
             const response = await fetch(
-              `https://api.imgflip.com/caption_image${objectToQueryParam(
+              `https://cors-anywhere.herokuapp.com/https://api.imgflip.com/caption_image${objectToQueryParam(
                 params
               )}`
             )
