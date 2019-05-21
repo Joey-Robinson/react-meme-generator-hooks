@@ -39,8 +39,8 @@ const App = () => {
               template_id: template.id,
               text0: topText,
               text1: bottomText,
-              username: "allboutdamemes",
-              password: "1234qwerpassword"
+              username: process.env.USERNAME,
+              password: process.env.PASSWORD
             }
             const response = await fetch(
               `https://api.imgflip.com/caption_image${objectToQueryParam(
